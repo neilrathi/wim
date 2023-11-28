@@ -11,38 +11,38 @@
             onload="renderMathInElement(document.body);"></script>
   </head>
   <body>
-    <div class="wrapper">
-      <h1 style = "margin-bottom:0px">WIM Paper</h1>
-      <p>Neil Rathi <br> Math 120, Fall 2023</p>
+    <div class="wrapper wim">
+      <h1>What can we draw, perfectly?</h1>
+      <p style = "margin-top:-15px">Neil Rathi // Math 120, Fall 2023</p>
       
-      <p>What can we draw? An artist might say `anything'—but my skill in that department is severely lacking. My lack of basic artistic talent means that I'm limited to whatever can be sketched with the crutch of a couple basic tools.</p>
+      <p>I am not very good at drawing. My lack of basic competence in art means that I'm limited to whatever can be sketched with the crutch of a couple basic tools.</p>
 
       <p>Fortunately, I share this predicament with the brightest mathematicians of Ancient Greece. Pythagoras and Euclid had a preoccupation with the ruler and compass, tools which allow us to construct geometries of perfect precision. This was born out of an insistence that the world could be perfectly mathematically constructed. Euclid's <em>Elements</em> spell this out in the first three of his five geometric postulates:</p>
       
-      <p class="postulate" data-attribution="Euclid's Postulates">
-        <ol style = "margin-top:-15px">
+      <div class="postulate" data-attribution="Euclid's Postulates">
+        <ol style = "margin-bottom:0px">
           <li>A straight line is defined by two distinct points</li>
           <li>Any straight line can be extended infinitely</li>
           <li>A circle is defined by two distinct points (a center and a point on the circumference)</li>
         </ol>
-      </p>
+      </div>
 
-      <p>These postulates define a 'perfect' infinite ruler (1 and 2) and a 'perfect' compass (3), forming the basis of <strong>Euclidean geometry</strong>. So then, what can Pythagoras and I draw? The Greeks were prolific constructors, with recipes to draw parallel lines, bisect angles, and regular polygons. Three problems, however, continued to stump them:</p>
+      <p>These postulates define a 'perfect' infinite ruler (1 and 2) and a 'perfect' compass (3), forming the basis of <strong>Euclidean geometry</strong>. See, we can't be sure that any by-hand sketch is 100% accurate. But anything that solely uses the Euclidean ruler-and-compass is necessarily mathematically perfect: parallel lines are perfectly parallel, angle bisectors bisect unblemished.</p>
+
+      <p>So then, what can Pythagoras (and I) draw? The Greeks were prolific constructors, with recipes to draw anything from tangent lines to regular polygons. Three problems, however, continued to stump them:</p>
       
       <ol>
-        <li>Given an angle, can we construct an angle with <u>one third the measure</u>?</li>
-        <li>Given a cube, can we construct a cube with <u>double the volume</u>?</li>
-        <li>Given a circle, can we construct a square with <u>the same area</u>?</li>
+        <li>Given an <u>angle</u>, is there a recipe to construct an angle with <u>one third the measure</u>?</li>
+        <li>Given a <u>cube</u>, is there a recipe to construct a cube with <u>double the volume</u>?</li>
+        <li>Given a <u>circle</u>, is there a recipe to construct a square with <u>the same area</u>?</li>
       </ol>
 
       <p>We refer to these as <strong>trisecting the angle</strong>, <strong>doubling the cube</strong>, and <strong>squaring the circle</strong>. The Greeks (and other civilizations) tried endlessly to build these three constructions, convinced that they were possible. Indeed, it was not until the 19th century that we had a definite proof of their impossibility, due to Wantzel.</p>
 
-      <p>It turns out that this impossibility is tied to the notion of algebraic fields. Effectively, our proof boils down to showing that only a certain subset of the real numbers \(\R\) can be constructed, and then showing that the solutions to the problems do not fall within this subset.</p>
+      <p>It turns out that this impossibility is tied to the notion of algebraic fields. In what follows, we prove that the first two of these problems are impossible (squaring the circle is more challenging, but follows a similar line of reasoning). Effectively, our proof boils down to first showing that only a certain subset of the real numbers \(\R\) can be constructed, and then showing that the solutions to the problems do not fall within this subset.</p>
 
-      <h2>What numbers can I make?</h2>
-      <p>Euclid's <em>Elements</em> give us a nice framework for algebraically examining constructability. We can draw out some arbitrary length with our straightedge; let's call this length \(1\). We can copy \(1\) with our compass, and shift this over infinitely in the cardinal directions, giving us the perpendicular \(x\)- and \(y\)-axes of the Cartesian plane.</p>
-
-      <p>To make things slightly more formal, let's consider points \((x,y) \in \R^2\), and lets define \(K \subseteq \R^2\) as the set of <em>k</em>onstructible points. Which elements of \(\R^2\) are also elements of \(K\)? Note that if we accept the Euclidean version of a perfect straightedge and compass, we are limiting ourselves to the following five `operations' on points:</p>
+      <h2>Part 1: What numbers can I construct?</h2>
+      <p>Euclid's <em>Elements</em> give us a nice framework for examining constructibility. Note that if we accept the Euclidean version of a perfect straightedge and compass, we are limiting ourselves to the following five 'operations' on points:</p>
 
       <ol>
         <li>Creating a line from two distinct points</li>
@@ -54,13 +54,46 @@
 
       <p>This gives us a nice way to formulate constructibility.</p>
 
-      <p class = "definition" data-attribution = "Geometric Formulation of Constructible Numbers">A point \(k\) is constructible if and only if it can be created with operations of a straightedge and compass.</p>
+      <div style="text-align: center;">
+        <div style="display:inline-block; width:33%">
+          <img src = "assets/wim/line_intersection.gif">
+        </div>
+        <div style="display:inline-block; width:33%">
+          <img src = "assets/wim/circle_intersection.gif">
+        </div>
+        <div style="display:inline-block; width:33%">
+          <img src = "assets/wim/circle_line.gif">
+        </div>
+        <p style = "text-align:center"><strong>Figure 1.</strong> Operations with straightedge-and-compass.</p>
+      </div>
 
-      <p>Note that we can add two lengths together by copying one with a compass and appending it onto the other with a straightedge. This allows us to construct any of the integers using \(1\) through basic addition and subtraction (more formally, this is because \(\Z\) is cyclic and generated by \(1\)). So then \(\Z \subseteq K\).</p>
+      <p class = "definition">A point is constructible if and only if it can be created with operations of a straightedge and compass.</p>
 
-      <p>If we have lengths \(a, b\) which are constructed in this way, we can then create \(a + b, a - b, a \cdot b,\) and \(a/b\). The first two can be constructed in the same way as above; we show multiplication and division geometrically here (TODO: ADD FIGURE). So then \(\mathbb{Q} \subseteq K\).</p>
+      <p>The issue is that this definition of constructibility doesn't allow us to say if some arbitrary point is constructible. To that end, it would be useful to have an <strong>algebraic</strong> characterization of the constructible numbers. To make things slightly more formal, let's consider points \((x,y) \in \R^2\), and let's define \(K \times K \subseteq \R^2\) as the set of <em>k</em>onstructible points. Which elements of \(\R\) are also elements of \(K\)?</p>
 
-      <p>If we have a length \(a\), we can use \(1\) to construct \(\sqrt{a}\) geometrically as in Figure (TODO: ADD FIGURE). This is a result of the Pythagorean theorem; if we let \(x\) be the length from the circle to diameter, we have</p>
+      <p> We can draw out some arbitrary length with our straightedge; let's call this length \(1\). We can copy \(1\) with our compass, and shift this over infinitely in the cardinal directions, giving us the perpendicular \(x\)- and \(y\)-axes of the Cartesian plane. This allows us to construct any of the integers using \(1\) through basic addition and subtraction (more formally, this is because \(\Z\) is cyclic and generated by \(1\)). So then \(\Z \subseteq K\).</p>
+
+      <div style="text-align: center">
+        <div style="display:inline-block; width:50%">
+          <img src = "assets/wim/cartesian.gif">
+          <p style = "text-align:center"><strong>Figure 2.</strong> Construction of \((x,y) \in \Z \times \Z\)</p>
+        </div>
+      </div>
+
+      <p>If we have lengths \(a, b\) which are constructed in this way, we can then create \(a + b, a - b, a \cdot b,\) and \(a/b\). The first two can be straightforwardly constructed by appending the two lengths together. We show multiplication geometrically in Figure 3 (division is the same, replacing the length \(ab\) with \(a\)). So then \(\mathbb{Q} \subseteq K\).</p>
+
+      <div style="text-align: center;">
+        <div style="display:inline-block; width:49%">
+          <img src = "assets/wim/multiplication.gif">
+          <p style = "text-align:center"><strong>Figure 3.</strong> Construction of \(a\cdot b\)</p>
+        </div>
+        <div style="display:inline-block; width:49%">
+          <img src = "assets/wim/sqrt.gif">
+          <p style = "text-align:center"><strong>Figure 4.</strong> Construction of \(\sqrt{a}\)</p>
+        </div>
+      </div>
+
+      <p>If we have a length \(a\), we can use \(1\) to construct \(\sqrt{a}\) geometrically as in Figure 4. This is a result of the Pythagorean theorem; if we let \(x\) be the length from the circle to diameter, we have</p>
 
       $$
       \begin{aligned}
@@ -72,7 +105,11 @@
 
       <p>so \(x = \sqrt{a}\). So \(K\) includes all numbers which can be made from the integers with addition, subtraction, multiplication, division, and square roots (note that this includes nested square roots).</p>
 
-      <p>It turns out that this is <em>all</em> of $K$. We cannot construct, for example, irrational numbers, or cube roots of arbitrary rationals (a point that is relevant for the proofs we cover below). To see this, we can look at all possible operations of construction, starting with numbers in the subset of \(K\) we found above. If we create a line, this obviously limits us to the \((x,y) \in K\) we identified earlier. But if we create a second line that intersects this, we can describe their intersection as the solution to
+      <p>It turns out that this is <em>all</em> of \(K\). We cannot construct, for example, transcendental numbers, or cube roots of arbitrary rationals (a point that is relevant for the proofs we cover below). To see this, we start with the numbers in the subset of \(K\) we found above and ask if our five basic operations can produce any other points.</p>
+
+      <p>Note that creating a line or a circle on their own (e.g. the first two operations) won't allow us to find any <em>new</em> points. We can, however, use these operations together to identify intersections.</p>
+
+      <p>If we create a line, this obviously limits us to the \((x,y) \in K\) we identified earlier. But if we create a second line that intersects this, we can describe their intersection as the solution to
       
       $$\begin{cases}
           a_0x + b_0y = c_1 \\
@@ -112,11 +149,109 @@
 
       <p>We've therefore shown that any point that all constructible numbers can be expressed in closed form through integers with addition, subtraction, multiplication, division, and square roots, and all such numbers are constructible. This gives us the full formulation of \(K\).</p>
 
-      <p class = "theorem" data-attribution = "Algebraic Formulation of Constructible Numbers">
+      <div class = "theorem" data-attribution = "Algebraic Characterization of Constructible Numbers">
         A number \(k\) is constructible if and only if it can be written as a combination of integers using the operations of addition, subtraction, multiplication, division, and square roots.
-      </p>
+      </div>
       
       <p>As we showed above, this also means that \(\Z \subseteq \mathbb{Q} \subseteq K\) (but \(K\) also includes irrationals, like \(\sqrt{2}\). The impossibility of trisecting the angle and doubling the cube directly follows from this algebraic characterization of \(K\), which we now show.</p>
+
+      <h2>Part 2: Why can't I trisect an angle?</h2>
+      <p>The classical formulation of angle trisection asks us for a generic recipe that works for <em>any</em> angle. So to prove that this recipe does not exist, we just need to show one angle for which the construction is impossible: consider \(\theta = 60^{\circ}\). We want to construct an angle of exactly one-third this measure, i.e. \(20^{\circ}\).</p>
+
+      <div style="text-align: center">
+        <div style="display:inline-block; width:49%">
+          <img src = "assets/wim/cosine_from_angle.gif">
+          <p style = "text-align:center"><strong>Figure 5.</strong> Constructing \(\cos\theta\) from \(\theta\).</p>
+        </div>
+        <div style="display:inline-block; width:49%">
+          <img src = "assets/wim/angle_from_cosine.gif">
+          <p style = "text-align:center"><strong>Figure 6.</strong> Constructing \(\theta\) from \(\cos\theta\).</p>
+        </div>
+      </div>
+
+      <p>You might ask why we've done all of this work to develop \(K\) algebraically. Note that if we can construct \(\theta\), we can also construct \(\cos\theta\) by drawing a unit segment and dropping a perpendicular down (Figure 5). Then, we can use the triple angle identity:</p>
+
+      $$
+      \cos \theta = 4 \cos^3 \left(\frac{\theta}{3}\right) - 3\cos \left(\frac{\theta}{3}\right).
+      $$
+
+      <p>Letting \(\theta = 60^{\circ}\) and \(\cos(20^{\circ}) = x\), we have</p>
+
+      $$
+      \frac{1}{2} = 4x^3 - 3x,
+      $$
+
+      <p>which we transform into</p>
+
+      $$
+      8x^3 - 6x - 1 = 0.
+      $$
+
+      <p>All we need to do is construct a segment of length \(x\), since this will allow us to straightforwardly construct an angle of measure \(20^{\circ}\) (see Figure 6). It turns out, however, that this equation has no solutions in \(K\), meaning that \(x\) (and thus \(20^{\circ}\)) is not constructible.</p>
+
+      <div class = "theorem">
+        The cubic \(p(x) = 8x^3 - 6x - 1\) has no constructible roots.
+      </div>
+
+      <p>The proof of this claim is the bulk of our work. We rely on induction, first showing that the equation has no <em>rational</em> roots, and then iteratively extending the field of possible solutions with \(\sqrt{\gamma}\) for some \(\gamma\). For this first part, we show a more general statement about the rational roots of a polynomial.</p>
+
+      <div class = "theorem" data-attribution = "Rational Root Theorem">
+        Let \(P(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_0\) be a polynomial in \(x\). All rational roots of \(P\) can be written in lowest terms as \(x = p/q\) where \(\gcd(p, q) = 1\) and
+        <ul style = "margin-bottom: 0px">
+          <li>\(a_n\) is divisible by \(q\)</li>
+          <li>\(a_0\) is divisible by \(p\)</li>
+        </ul>
+      </div>
+
+      <p>This proof is straightforward. Let \(x = p/q\) be a root of \(P\) such that</p>
+      $$
+      \begin{aligned}
+        a_n\left(\frac{p}{q}\right)^n + a_{n-1}\left(\frac{p}{q}\right)^{n-1} + \cdots + a_0 &= 0 \\
+        a_np^n + a_{n-1}p^{n-1}q + \cdots + a_0q^n &= 0 \\
+        p(a_np^{n-1} + a_{n-1}p^{n-2}q + \cdots + a_1p^{n-1}) &= -a_0q^n,
+      \end{aligned}
+      $$
+
+      <p>so that \(r\) divides \(a_0s^n\). But \(\gcd(r, s) = \gcd(r, s^n) = 1\), meaning that \(r\) divides \(a_0\). Similarly, we have</p>
+      $$
+      q(a_{n-1}p^{n-1} + a_{n-2}p^{n-2}q + \cdots + a_0q^{n-1}) = -a_np^n,
+      $$
+      <p>so that \(q\) divides \(a_n\) as desired.</p>
+
+      <p>We can naturally apply this result to \(p(x)\) above: the possible rational roots of \(8x^3 - 6x - 1\) are \(\left\{\pm 1, \pm \frac{1}{2}, \pm \frac{1}{4}, \pm \frac{1}{8}\right\}\), but after checking manually we note that none of these values are zeroes. Thus, \(8x^3 - 6x - 1 = 0\) has no rational solutions.</p>
+
+      <p>Now, we'll proceed by induction to show that \(p(x)\) has no <strong>constructible</strong> roots. In particular, we show that if \(p(x)\) has no solutions in a field \(\mathbb{F}\), then it has no solutions in \(\mathbb{F}[\sqrt{\gamma}]\), taking \(\mathbb{Q}\) as our base case. We proceed by contradiction: assume that \(p(x)\) <em>does</em> have a solution in \(\mathbb{F}[\sqrt{\gamma}]\), which we can write as \(a + b\sqrt{\gamma}\) for \(a,b,\gamma \in \mathbb{F}\).</p>
+
+      <p>Note that we then can say that \(a - b\sqrt{\gamma}\) is also a root. This is because we can use the Euclidean division algorithm for polynomials to write \(p(x) = d(x)q(x) + r(x)\), where \(d(x) = (x-(a+b\sqrt{\gamma}))(x-(a-b\sqrt{\gamma}))\) is a second degree polynomial and \(r(x)\) is of degree at most \(1\). If \(a+b\sqrt{\gamma}\) is a zero, then \(p(a+b\sqrt{\gamma}) = r(x) = 0\), so \(p(a-b\sqrt{\gamma}) = 0\).
+      </p>
+
+      <p>Since \(p(x)\) is a cubic, we can uniquely factorize it as \((x - r_1)(x - r_2)(x - r_3)\). We let \(r_1 = a + b\sqrt{\gamma}\) and \(r_2 = a - b\sqrt{\gamma}\), which are both elements of \(\mathbb{F}[\sqrt{\gamma}]\). This third root, \(r_3\), is still mysterious. But, note that with our above factorization of \(p(x)\) we have</p>
+      $$
+      p(x) = x^n - (r_1 + r_2 + r_3)x^{n-1} + \dots - r_1r_2r_3 = 8x^3 - 0x^2 + 6x - 1,
+      $$
+      <p>so that equating like terms yields \(r_1 + r_2 + r_3 = 0\). This very conveniently yields</p>
+      $$
+      (a + b\sqrt{\gamma}) + (a - b\sqrt{\gamma}) + r_3 = 2a + r_3 = 0,
+      $$
+      <p>so \(r_3 = -2a\). We also assumed \(a \in \mathbb{F}\), which means \(r_3\) is also in \(\mathbb{F}\). But, since we know \(p(x)\) has no roots in \(\mathbb{F},\) this is a contradiction! Thus, \(p(x)\) <em>cannot</em> have roots in \(\mathbb{F}[\sqrt{\gamma}]\) if it has no roots in \(\mathbb{F}\).</p>
+
+      <p>What we've done here is show that we can't ever find roots of \(p(x)\) by endlessly extending the solution space with square roots. We also know that \(p\) has no rational solutions. Together, these facts imply that we can't find solutions to \(p\) in the field</p>
+      $$
+      (((\mathbb{Q}[\sqrt{\gamma_1}])[\sqrt{\gamma_2}])[\sqrt{\gamma_3}])\dots
+      $$
+      <p>But this is just our definition of \(K\), so there is no way of geometrically constructing a segment of length \(x = \cos(20^{\circ})\). Thus, we can't construct a \(20^{\circ}\) angle, which means that it's impossible to trisect a \(60^{\circ}\) angle. And this, as we noted earlier, is enough to prove that there is no generic recipe to trisect any given angle.</p>
+
+      <h2>Part 3: Why can't I double a cube or square a circle?</h2>
+      <p>Our proof of the impossibility of trisection is a template that can be used to prove the other two impossibilities. Doubling the cube proves to be effectively equivalent to trisecting the angle: if we have a cube of volume \(1,\) we need to construct a new cube with side length \(x\) such that \(x^3 = 2,\) which we can straightforwardly show has no solutions in \(K\) (we leave details to the reader).</p>
+
+      <p>Proving impossibility of squaring the circle turns out to involve a few extra steps beyond the scope of this paper. In essence, it boils down to constructing a segment of length \(\sqrt{\pi}\), which is impossible because \(\pi\), being transcendental, is not the solution to <em>any</em> polynomial and is thus not algebraically constructible.</p>
+
+      <h2>Conclusion: What if I really, really, really want to trisect an angle?</h2>
+      <p>At the very beginning of this paper I laid down a set of axioms and bounded our capabilities within them. And there is good reason to use such axioms! But the Greek preoccupation with the compass and unmarked straightedge is restrictive, and if we allow ourselves some axiomatic flexibility, we can indeed trisect the angle or double the cube.</p>
+
+      <p>There are several ways to do this: we can use tools like a ruler, or an extra curve, or a string. One particularly illuminating way relies on paper folding, which gives us an entirely different set of axioms. One of these axioms involves 'sliding' the paper to meet a crease, which, while impossible in Euclid's world, allows us to generate cube roots and thus solve arbitrary cubics. This, in turn, allows us to trisect the angle and double the cube.</p>
+
+      <p>The point of all of this is to say that the reason that these constructions are 'impossible' is simply a consequence of the choice of our axioms. Euclid's postulates are a good framework for doing geometry, but they are not the <em>only</em> such framework. Algebraically characterizing these geometric axioms allows us to prove their limitations.</p>
     </div>
   </body>
 </html>

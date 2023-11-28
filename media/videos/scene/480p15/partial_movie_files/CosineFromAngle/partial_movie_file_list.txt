@@ -1,0 +1,5 @@
+# This file is used internally by FFMPEG.
+file 'file:/Users/neilrathi/csboy/wim/media/videos/scene/480p15/partial_movie_files/CosineFromAngle/4266129954_1358296016_2021829491.mp4'
+file 'file:/Users/neilrathi/csboy/wim/media/videos/scene/480p15/partial_movie_files/CosineFromAngle/1442284246_3863324759_3132544634.mp4'
+file 'file:/Users/neilrathi/csboy/wim/media/videos/scene/480p15/partial_movie_files/CosineFromAngle/1442284246_2498497590_3106141651.mp4'
+file 'file:/Users/neilrathi/csboy/wim/media/videos/scene/480p15/partial_movie_files/CosineFromAngle/1442284246_2358420384_3356403820.mp4'
